@@ -13,7 +13,7 @@ export default function HeroSection() {
 
       <div className="container-max relative z-10 grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center section-fade">
         <div className="space-y-6 text-white">
-          {/* AQUÍ VA EL LOGO (cuando subas logo-palash-tower.png) */}
+          {/* LOGO EN HERO */}
           <div className="flex items-center">
             <div className="relative h-10 w-40 sm:h-12 sm:w-52">
               <Image
@@ -27,13 +27,13 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* TÍTULO SIN 'Palash Tower:' */}
+          {/* TÍTULO */}
           <h1 className="font-display text-4xl leading-tight sm:text-5xl lg:text-6xl">
             <span className="font-bold text-palash-sand">
               Experience Panama&apos;s Best.
             </span>
             <br />
-            <span className="mt-2 inline-block font-sans text-lg sm:text-xl text-palash-sandLight">
+            <span className="mt-3 inline-block font-display italic tracking-wide text-[1.4rem] sm:text-[1.6rem] text-palash-sandLight">
               Canal, Nature, and Modern Mediterranean Design.
             </span>
           </h1>
