@@ -30,7 +30,7 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${playfair.variable} scroll-smooth`}
     >
-      <body className="bg-slate-950 text-slate-100 min-h-screen">
+      <body className="min-h-screen bg-palash-cream text-palash-ink">
         <div className="flex min-h-screen flex-col">
           <Navbar />
           <main className="flex-1">{children}</main>
