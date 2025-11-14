@@ -1,4 +1,3 @@
-import Image from "next/image";
 import VideoPlayer from "./VideoPlayer";
 import { images, videos } from "@/lib/media";
 
@@ -20,21 +19,23 @@ export default function LocationSection() {
           </p>
         </header>
 
-        {/* Mapa + Tucán */}
+        {/* Mapa interactivo + Tucán */}
         <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr] lg:items-start">
           <div className="space-y-4">
-            <div className="relative h-64 overflow-hidden rounded-3xl bg-slate-900 shadow-soft-lg">
-              <Image
-                src={images.location.map}
-                alt="Mapa de ubicación de Palash Tower"
-                fill
-                sizes="(min-width: 1024px) 60vw, 100vw"
-                className="object-cover opacity-80"
+            {/* MAPA INTERACTIVO GOOGLE MAPS */}
+            <div className="relative h-72 overflow-hidden rounded-3xl bg-slate-900 shadow-soft-lg">
+              <iframe
+                title="Palash Tower Location Map"
+                src="https://www.google.com/maps?q=Tucan+Country+Club+Panama&output=embed"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="h-full w-full border-0"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+              {/* Overlay suave arriba para que se vea elegante, pero sin bloquear interactividad */}
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4">
                 <a
-                  href="https://maps.google.com"
+                  href="https://www.google.com/maps/search/?api=1&query=Tucan+Country+Club+Panama"
                   target="_blank"
                   rel="noreferrer"
                   className="rounded-full bg-palash.sand px-4 py-2 text-xs font-semibold uppercase tracking-wide text-palash.ocean shadow-soft-lg hover:bg-palash.sandLight"
