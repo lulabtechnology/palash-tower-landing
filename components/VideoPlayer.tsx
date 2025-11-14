@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 
 type VideoPlayerProps = {
   src: string;
@@ -16,55 +15,49 @@ export default function VideoPlayer({
   poster,
   title,
   autoPlayDesktopOnly = false,
-  className
+  className,
 }: VideoPlayerProps) {
   const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    // Consideramos desktop cuando el ancho es >= 1024px (tailwind lg)
-    setIsDesktop(window.innerWidth >= 1024);
+
+    const handleResize = () => {
+      // >= 1024px (lg en Tailwind) lo consideramos desktop
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const shouldAutoplay = autoPlayDesktopOnly && isDesktop;
 
   return (
     <div
-      className={`relative overflow-hidden rounded-3xl bg-black/60 shadow-soft-lg ${className ?? ""}`}
+      className={`relative overflow-hidden rounded-3xl border border-palash-sand/30 bg-palash-ink/70 shadow-soft-lg ${
+        className ?? ""
+      }`}
     >
-      <div className="relative aspect-video w-full">
-        {/* Capa visual con el poster, para que se vea bonito antes de reproducir */}
-        {poster && (
-          <Image
-            src={poster}
-            alt={title ?? "Video thumbnail"}
-            fill
-            sizes="100vw"
-            className="pointer-events-none object-cover opacity-40"
-          />
-        )}
+      <video
+        className="aspect-video w-full object-cover"
+        src={src}
+        poster={poster}
+        controls
+        playsInline
+        autoPlay={shouldAutoplay}
+        muted={shouldAutoplay}
+        loop={shouldAutoplay}
+      >
+        Your browser does not support the video tag.
+      </video>
 
-        <video
-          className="relative z-10 h-full w-full rounded-3xl object-cover"
-          controls
-          playsInline
-          autoPlay={shouldAutoplay}
-          muted={shouldAutoplay}
-          loop={shouldAutoplay}
-          poster={poster}
-        >
-          <source src={src} />
-          Your browser does not support the video tag.
-        </video>
-
-        {title && (
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black/70 via-black/10 to-transparent p-4">
-            <p className="text-sm font-medium text-palash.sandLight">
-              {title}
-            </p>
-          </div>
-        )}
-      </div>
+      {title && (
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent px-4 pb-3 pt-10">
+          <p className="text-sm font-medium text-palash-sand">{title}</p>
+        </div>
+      )}
     </div>
   );
 }
