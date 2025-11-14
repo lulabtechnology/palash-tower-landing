@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  @apply bg-slate-950 text-slate-100 antialiased;
+  @apply bg-palash-cream text-palash-ink antialiased;
 }
 
 /* Contenedor máximo reutilizable */
