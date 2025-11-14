@@ -61,4 +61,22 @@ export default function HeroSection() {
             </a>
             <a
               href="#sky-deck"
-              className="rounded-full border border-palash-sand/80 bg-transparent px-6 py-3 text-xs sm:text-
+              className="rounded-full border border-palash-sand/80 bg-transparent px-6 py-3 text-xs sm:text-sm font-semibold uppercase tracking-wide text-palash-sand transition hover:bg-white/10"
+            >
+              Watch Full Experience
+            </a>
+          </div>
+        </div>
+
+        <div className="lg:pl-4">
+          <VideoPlayer
+            src={videos.heroSunsetCanal}
+            poster={images.heroSunsetExterior}
+            title="Sunset over the Panama Canal – Palash Tower perspective"
+            autoPlayDesktopOnly
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
