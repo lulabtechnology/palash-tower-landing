@@ -10,12 +10,20 @@ const config: Config = {
     extend: {
       colors: {
         palash: {
-          forest: "#0c2520",
-          forestLight: "#13352d",
-          ocean: "#042a3b",
-          oceanLight: "#0a3c54",
-          sand: "#d9b574",
-          sandLight: "#f3e0b5"
+          // Fondo base claro, tipo crema mediterránea
+          cream: "#fdf7ef",
+          // Arena / beige cálido para detalles
+          sand: "#e8d3b0",
+          sandLight: "#f5e8cf",
+          // Color de texto principal
+          ink: "#1b2733",
+          // Verdes / azules del concepto "bosque + canal"
+          forest: "#265b52",
+          forestLight: "#3f7b6b",
+          ocean: "#0f2f3a",
+          oceanLight: "#1c4654",
+          // Dorado suave para acentos
+          accent: "#c9913b"
         }
       },
       fontFamily: {
@@ -23,7 +31,7 @@ const config: Config = {
         display: ["var(--font-playfair)", "serif"]
       },
       boxShadow: {
-        "soft-lg": "0 25px 50px -12px rgba(0,0,0,0.45)"
+        "soft-lg": "0 25px 50px -12px rgba(15, 23, 42, 0.35)"
       }
     }
   },
