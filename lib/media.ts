@@ -1,5 +1,6 @@
 export const images = {
-  logo: "/images/logo-palash-tower.svg",
+  // AHORA PNG, NO SVG
+  logo: "/images/logo-palash-tower.png",
   heroSunsetExterior: "/images/hero-sunset-exterior.jpg",
   modelA: {
     floorplan: "/images/model-a-floorplan.jpg",
