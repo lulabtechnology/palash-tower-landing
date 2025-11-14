@@ -22,14 +22,14 @@ export default function TestimonialsSection() {
   return (
     <section
       id="residents"
-      className="bg-gradient-to-b from-slate-950 to-palash.ocean/85 py-20 sm:py-24"
+      className="bg-gradient-to-b from-palash-cream to-palash-sandLight py-20 sm:py-24"
     >
       <div className="container-max section-fade">
         <header className="mb-10 text-center">
-          <h2 className="font-display text-3xl sm:text-4xl text-palash.sand mb-4">
+          <h2 className="font-display text-3xl sm:text-4xl text-palash-ocean mb-4">
             &quot;Escucha a Nuestros Residents y Únete a la Comunidad&quot;.
           </h2>
-          <p className="mx-auto max-w-2xl text-slate-200">
+          <p className="mx-auto max-w-2xl text-sm sm:text-base text-slate-700">
             Historias reales de quienes ya eligieron vivir entre el Canal, la
             naturaleza y el diseño mediterráneo contemporáneo que definen a
             Palash Tower.
@@ -40,10 +40,10 @@ export default function TestimonialsSection() {
           {testimonials.map((t) => (
             <article
               key={t.name}
-              className="flex flex-col gap-4 rounded-3xl bg-black/20 p-6 shadow-soft-lg"
+              className="flex flex-col gap-4 rounded-3xl border border-palash-sand/60 bg-white/95 p-6 shadow-soft-lg"
             >
               <div className="flex items-center gap-4">
-                <div className="relative h-14 w-14 overflow-hidden rounded-full bg-slate-800">
+                <div className="relative h-14 w-14 overflow-hidden rounded-full bg-palash-sandLight">
                   <Image
                     src={t.image}
                     alt={t.name}
@@ -53,19 +53,19 @@ export default function TestimonialsSection() {
                   />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-palash.sand">
+                  <p className="text-sm font-semibold text-palash-ocean">
                     {t.name}
                   </p>
-                  <p className="text-xs text-slate-300">{t.role}</p>
+                  <p className="text-xs text-slate-600">{t.role}</p>
                 </div>
               </div>
-              <p className="text-sm text-slate-100">{t.quote}</p>
+              <p className="text-sm text-slate-800">{t.quote}</p>
             </article>
           ))}
         </div>
 
         <div className="mt-10 text-center">
-          <p className="font-display text-xl text-palash.sandLight">
+          <p className="font-display text-xl text-palash-ocean">
             “The most secure and green place in Panama.”
           </p>
         </div>
