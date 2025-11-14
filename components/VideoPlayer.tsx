@@ -18,23 +18,22 @@ export default function VideoPlayer({
   autoPlayDesktopOnly = false,
   className
 }: VideoPlayerProps) {
-  const [canAutoplay, setCanAutoplay] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (autoPlayDesktopOnly && window.innerWidth >= 1024) {
-      setCanAutoplay(true);
-    } else {
-      setCanAutoplay(false);
-    }
-  }, [autoPlayDesktopOnly]);
+    // Consideramos desktop cuando el ancho es >= 1024px (tailwind lg)
+    setIsDesktop(window.innerWidth >= 1024);
+  }, []);
+
+  const shouldAutoplay = autoPlayDesktopOnly && isDesktop;
 
   return (
     <div
       className={`relative overflow-hidden rounded-3xl bg-black/60 shadow-soft-lg ${className ?? ""}`}
     >
       <div className="relative aspect-video w-full">
-        {/* Usamos poster como capa de fondo para hacer el aspecto visual más bonito */}
+        {/* Capa visual con el poster, para que se vea bonito antes de reproducir */}
         {poster && (
           <Image
             src={poster}
@@ -49,9 +48,9 @@ export default function VideoPlayer({
           className="relative z-10 h-full w-full rounded-3xl object-cover"
           controls
           playsInline
-          autoPlay={canAutoplay}
-          muted={canAutoplay}
-          loop={canAutoplay}
+          autoPlay={shouldAutoplay}
+          muted={shouldAutoplay}
+          loop={shouldAutoplay}
           poster={poster}
         >
           <source src={src} />
