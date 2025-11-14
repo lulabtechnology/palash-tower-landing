@@ -30,10 +30,11 @@ export default function Navbar() {
   };
 
   return (
-    <header className="fixed inset-x-0 top-0 z-40 border-b border-slate-800/60 bg-slate-950/80 backdrop-blur-md">
+    <header className="fixed inset-x-0 top-0 z-40 border-b border-palash-sand/40 bg-palash-cream/80 backdrop-blur-md">
       <div className="container-max flex items-center justify-between py-3">
-        <Link
-          href="/"
+        <button
+          type="button"
+          onClick={() => handleNavClick("home")}
           className="flex items-center gap-3"
           aria-label="Go to Palash Tower homepage"
         >
@@ -47,26 +48,26 @@ export default function Navbar() {
               priority
             />
           </div>
-          <span className="hidden text-sm font-semibold tracking-[0.2em] text-palash.sand sm:inline">
+          <span className="hidden text-[10px] font-semibold tracking-[0.28em] text-palash-forest sm:inline">
             PALASH TOWER
           </span>
-        </Link>
+        </button>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-6 text-sm font-medium text-slate-200 md:flex">
+        <nav className="hidden items-center gap-6 text-[13px] font-medium text-palash-ink/80 md:flex">
           {navLinks.map((link) => (
             <button
               key={link.targetId}
               type="button"
               onClick={() => handleNavClick(link.targetId)}
-              className="transition hover:text-palash.sandLight"
+              className="transition hover:text-palash-oceanLight"
             >
               {link.label}
             </button>
           ))}
           <Link
             href="/gallery"
-            className="rounded-full border border-palash.sand/70 bg-palash.forest px-4 py-2 text-xs uppercase tracking-wide text-palash.sand shadow-soft-lg transition hover:bg-palash.forestLight"
+            className="rounded-full border border-palash-forest/50 bg-palash-forest px-4 py-2 text-xs uppercase tracking-wide text-palash-sand shadow-soft-lg transition hover:bg-palash-forestLight"
           >
             Gallery
           </Link>
@@ -75,36 +76,36 @@ export default function Navbar() {
         {/* Mobile button */}
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-full border border-slate-700 p-2 text-slate-200 md:hidden"
+          className="inline-flex items-center justify-center rounded-full border border-palash-forest/40 p-2 text-palash-ocean md:hidden"
           onClick={() => setOpen((prev) => !prev)}
           aria-label="Toggle navigation menu"
         >
           <span className="sr-only">Open navigation</span>
           <div className="space-y-1">
-            <span className="block h-[2px] w-5 bg-slate-200" />
-            <span className="block h-[2px] w-5 bg-slate-200" />
-            <span className="block h-[2px] w-5 bg-slate-200" />
+            <span className="block h-[2px] w-5 bg-palash-ocean" />
+            <span className="block h-[2px] w-5 bg-palash-ocean" />
+            <span className="block h-[2px] w-5 bg-palash-ocean" />
           </div>
         </button>
       </div>
 
       {/* Mobile menu */}
       {open && (
-        <div className="border-t border-slate-800 bg-slate-950/95 md:hidden">
+        <div className="border-t border-palash-sand/40 bg-palash-cream md:hidden">
           <nav className="container-max flex flex-col gap-2 py-4 text-sm">
             {navLinks.map((link) => (
               <button
                 key={link.targetId}
                 type="button"
                 onClick={() => handleNavClick(link.targetId)}
-                className="w-full rounded-xl px-3 py-2 text-left text-slate-200 transition hover:bg-slate-900"
+                className="w-full rounded-xl px-3 py-2 text-left text-palash-ink transition hover:bg-palash-sandLight/60"
               >
                 {link.label}
               </button>
             ))}
             <Link
               href="/gallery"
-              className="mt-1 w-full rounded-xl border border-palash.sand/80 bg-palash.forest px-3 py-2 text-center text-xs uppercase tracking-wide text-palash.sand shadow-soft-lg transition hover:bg-palash.forestLight"
+              className="mt-1 w-full rounded-xl border border-palash-forest/50 bg-palash-forest px-3 py-2 text-center text-xs uppercase tracking-wide text-palash-sand shadow-soft-lg transition hover:bg-palash-forestLight"
               onClick={() => setOpen(false)}
             >
               Gallery
