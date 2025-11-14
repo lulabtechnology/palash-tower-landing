@@ -1,9 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { images } from "@/lib/media";
 
 const navLinks = [
   { label: "Home", targetId: "home" },
@@ -32,24 +30,15 @@ export default function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-40 border-b border-palash-sand/40 bg-palash-cream/80 backdrop-blur-md">
       <div className="container-max flex items-center justify-between py-3">
+        {/* YA NO HAY LOGO, SOLO TEXTO */}
         <button
           type="button"
           onClick={() => handleNavClick("home")}
-          className="flex items-center gap-3"
           aria-label="Go to Palash Tower homepage"
+          className="flex items-center"
         >
-          <div className="relative h-10 w-32 sm:h-12 sm:w-40">
-            <Image
-              src={images.logo}
-              alt="Palash Tower logo"
-              fill
-              sizes="160px"
-              className="object-contain"
-              priority
-            />
-          </div>
-          <span className="hidden text-[10px] font-semibold tracking-[0.28em] text-palash-forest sm:inline">
-            PALASH TOWER
+          <span className="text-[11px] font-semibold tracking-[0.28em] text-palash-forest">
+            PALASH TOWER · PANAMA
           </span>
         </button>
 
