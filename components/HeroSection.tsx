@@ -14,14 +14,14 @@ export default function HeroSection() {
 
       <div className="container-max relative z-10 grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center section-fade">
         <div className="space-y-6 text-white">
-          {/* LOGO ajustado al ancho del bloque de texto */}
+          {/* LOGO MÁS GRANDE Y UN POCO MÁS A LA IZQUIERDA */}
           <div className="flex items-center">
-            <div className="relative h-10 w-44 sm:h-12 sm:w-52 lg:h-14 lg:w-60">
+            <div className="relative -ml-1 sm:-ml-2 h-12 w-56 sm:h-16 sm:w-72 lg:h-20 lg:w-[22rem]">
               <Image
-                src={images.logo}
+                src={images.logo}              // "/images/logo-palash-tower.png"
                 alt="Palash Tower logo"
                 fill
-                sizes="260px"
+                sizes="360px"
                 className="object-contain"
                 priority
               />
