@@ -15,7 +15,7 @@ const testimonials: Testimonial[] = [
     role: "Entrepreneur & Resident",
     quote:
       "As an entrepreneur and a family man, safety and nature were my top priorities. At Palash Tower, we have it all. The fresh air is incredible, it's perfect for kids, and the views of the Panama Canal are simply spectacular. An excellent place to grow and live!",
-    photo: images.testimonials.lukasz,
+    
   },
   {
     name: "Claudia N.",
