@@ -1,77 +1,76 @@
+// components/SkyDeckSection.tsx
 import Image from "next/image";
-import VideoPlayer from "./VideoPlayer";
-import { images, videos } from "@/lib/media";
+import { images } from "@/lib/media";
+
+const features = [
+  {
+    title: "Amazing pool with canal views",
+    description:
+      "Swim at the edge of the skyline while ships glide through the Panama Canal below, surrounded by light and open skies.",
+  },
+  {
+    title: "Rooftop lounge & social areas",
+    description:
+      "Host intimate gatherings, sunset cocktails and memorable celebrations in beautifully designed lounge and dining spaces.",
+  },
+  {
+    title: "Wellness & relaxation spaces",
+    description:
+      "Spaces conceived for grounding rituals, quiet reflection and even small-scale horticulture, gently recharging your body and mind.",
+  },
+];
 
 export default function SkyDeckSection() {
   return (
     <section
       id="sky-deck"
-      className="bg-gradient-to-b from-palash-sandLight to-palash-cream py-20 sm:py-24"
+      className="section-bg-alt py-16 sm:py-20 lg:py-24"
     >
-      <div className="container-max section-fade">
-        <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-center">
-          <div>
-            <h2 className="font-display text-3xl sm:text-4xl text-palash-ocean mb-5">
-              The Sky Deck and Pool: Your Elevated Oasis Above Panama Canal
-            </h2>
-            <p className="mb-5 text-sm sm:text-base text-slate-700">
-              Ascend to the pinnacle of Palash Tower and discover The Sky pool
-              and deck, an exclusive rooftop retreat designed for ultimate
-              relaxation, sophisticated entertaining, and invigorating wellness.
-              From here everything looks beautiful, an unparalleled panorama of
-              the iconic Panama Canal stretching to the horizon, the vibrant
-              cityscape, and the serene lushness of the surrounding forest.
-            </p>
+      <div className="container-max grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-center">
+        <div className="space-y-6">
+          <p className="text-xs font-semibold tracking-[0.28em] text-palash-forest/80">
+            SKY DECK · POOL · ROOFTOP
+          </p>
 
-            <ul className="grid gap-3 text-sm text-slate-800 sm:grid-cols-2">
-              <li className="rounded-2xl bg-white/80 px-4 py-3 shadow-soft-lg">
-                <span className="font-semibold text-palash-ocean">
-                  Infinity pool with canal views
-                </span>
-                <p className="mt-1 text-slate-700">
-                  Swim at the edge of the skyline while ships glide through the
-                  Canal below.
+          <h2 className="font-display text-3xl leading-tight text-palash-ink sm:text-4xl lg:text-[2.6rem]">
+            The Sky Deck and Pool: Your Elevated Oasis Above Panama Canal
+          </h2>
+
+          <p className="text-sm leading-relaxed text-palash-ink/80 sm:text-base">
+            Ascend to the pinnacle of Palash Tower and discover The Sky pool
+            and deck, an exclusive rooftop retreat designed for ultimate
+            relaxation, sophisticated entertaining, and invigorating wellness.
+            From here everything looks beautiful, an unparalleled panorama of
+            the iconic Panama Canal stretching to the horizon, the vibrant
+            cityscape, and the serene lushness of the surrounding forest.
+          </p>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            {features.map((feature) => (
+              <div
+                key={feature.title}
+                className="rounded-3xl bg-white/90 p-4 shadow-soft-lg"
+              >
+                <h3 className="text-sm font-semibold text-palash-ink">
+                  {feature.title}
+                </h3>
+                <p className="mt-1 text-xs leading-relaxed text-palash-ink/80">
+                  {feature.description}
                 </p>
-              </li>
-              <li className="rounded-2xl bg-white/80 px-4 py-3 shadow-soft-lg">
-                <span className="font-semibold text-palash-ocean">
-                  Rooftop lounge &amp; social areas
-                </span>
-                <p className="mt-1 text-slate-700">
-                  Host intimate gatherings, sunset cocktails and memorable
-                  celebrations.
-                </p>
-              </li>
-              <li className="rounded-2xl bg-white/80 px-4 py-3 shadow-soft-lg">
-                <span className="font-semibold text-palash-ocean">
-                  Wellness &amp; relaxation spaces
-                </span>
-                <p className="mt-1 text-slate-700">
-                  Spaces conceived for yoga, meditation and recharging your
-                  body and mind.
-                </p>
-              </li>
-            </ul>
+              </div>
+            ))}
           </div>
+        </div>
 
-          <div className="space-y-5">
-            <figure className="relative h-52 overflow-hidden rounded-3xl bg-palash-sandLight/60 shadow-soft-lg">
-              <Image
-                src={images.skydeck.amenities}
-                alt="Sky Deck amenities"
-                fill
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-cover"
-              />
-            </figure>
-
-            <VideoPlayer
-              src={videos.skydeckPoolTour}
-              poster={images.skydeck.videoPoster}
-              title="Sky Deck & Pool – Rooftop Experience"
-              autoPlayDesktopOnly
-            />
-          </div>
+        {/* Solo foto, sin video */}
+        <div className="relative h-64 w-full sm:h-80 lg:h-full">
+          <Image
+            src={images.skydeck.amenities}
+            alt="Sky Deck amenities at Palash Tower"
+            fill
+            className="rounded-3xl border border-palash-sand/40 object-cover shadow-soft-lg"
+            sizes="(min-width: 1024px) 480px, 100vw"
+          />
         </div>
       </div>
     </section>
