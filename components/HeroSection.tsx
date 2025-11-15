@@ -1,3 +1,4 @@
+// components/HeroSection.tsx
 import Image from "next/image";
 import VideoPlayer from "./VideoPlayer";
 import { images, videos } from "@/lib/media";
@@ -13,14 +14,14 @@ export default function HeroSection() {
 
       <div className="container-max relative z-10 grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center section-fade">
         <div className="space-y-6 text-white">
-          {/* LOGO EN HERO */}
+          {/* LOGO MÁS GRANDE EN EL HERO */}
           <div className="flex items-center">
-            <div className="relative h-10 w-40 sm:h-12 sm:w-52">
+            <div className="relative h-12 w-48 sm:h-16 sm:w-64 lg:h-20 lg:w-80">
               <Image
                 src={images.logo}
                 alt="Palash Tower logo"
                 fill
-                sizes="220px"
+                sizes="320px"
                 className="object-contain"
                 priority
               />
