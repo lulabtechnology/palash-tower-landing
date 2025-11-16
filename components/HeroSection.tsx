@@ -14,22 +14,20 @@ export default function HeroSection() {
 
       <div className="container-max relative z-10 grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center section-fade">
         <div className="space-y-6 text-white">
-          {/* LOGO ajustado al ancho del bloque de texto */}
-          <div className="flex items-center">
-            <div className="relative h-10 w-44 sm:h-12 sm:w-52 lg:h-14 lg:w-60">
-              <Image
-                src={images.logo}
-                alt="Palash Tower logo"
-                fill
-                sizes="260px"
-                className="object-contain"
-                priority
-              />
-            </div>
+          {/* LOGO MUCHO MÁS GRANDE, ALINEADO CON EL TEXTO */}
+          <div className="max-w-xl">
+            <Image
+              src={images.logo} // "/images/logo-palash-tower.png"
+              alt="Palash Tower logo"
+              width={800}
+              height={260}
+              priority
+              className="h-auto w-full max-w-[520px] sm:max-w-[560px] lg:max-w-[600px] object-contain"
+            />
           </div>
 
           {/* TÍTULO */}
-          <h1 className="font-display text-4xl leading-tight sm:text-5xl lg:text-6xl">
+          <h1 className="font-display text-4xl leading-tight sm:text-5xl lg:text-6xl max-w-xl">
             <span className="font-bold text-palash-sand">
               Experience Panama&apos;s Best.
             </span>
