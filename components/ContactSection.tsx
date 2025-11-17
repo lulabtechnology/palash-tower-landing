@@ -1,7 +1,6 @@
-// components/ContactSection.tsx
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent } from "react";
 
 const buyerIntentOptions = [
   "I'm a broker",
@@ -16,15 +15,46 @@ const buyerIntentOptions = [
 ];
 
 export default function ContactSection() {
-  const [submitted, setSubmitted] = useState(false);
-
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    console.log("Palash Tower inquiry", Object.fromEntries(formData.entries()));
-    setSubmitted(true);
-    event.currentTarget.reset();
-    setTimeout(() => setSubmitted(false), 4000);
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    const name = String(formData.get("name") ?? "");
+    const email = String(formData.get("email") ?? "");
+    const phone = String(formData.get("phone") ?? "");
+    const preferredModel = String(formData.get("preferredModel") ?? "");
+    const message = String(formData.get("message") ?? "");
+    const buyerIntents = formData.getAll("buyerIntent") as string[];
+
+    const bodyLines: string[] = [
+      "New Palash Tower lead:",
+      "",
+      `Name: ${name || "Not provided"}`,
+      `Email: ${email || "Not provided"}`,
+      `Phone: ${phone || "Not provided"}`,
+      `Preferred apartment model: ${
+        preferredModel || "Not specified"
+      }`,
+      "",
+      "Buyer Intent Options:",
+      buyerIntents.length
+        ? buyerIntents.map((opt) => `- ${opt}`).join("\n")
+        : "- Not specified",
+      "",
+      "Message:",
+      message || "Not provided",
+    ];
+
+    const body = bodyLines.join("\n");
+
+    const mailto = `mailto:Sales@mlg-intl.com?subject=${encodeURIComponent(
+      "Palash Lead"
+    )}&body=${encodeURIComponent(body)}`;
+
+    // Abrir el cliente de correo
+    window.location.href = mailto;
   };
 
   return (
@@ -153,13 +183,6 @@ export default function ContactSection() {
             >
               Send Inquiry
             </button>
-
-            {submitted && (
-              <p className="pt-2 text-center text-xs text-palash-forest">
-                Thank you! Your inquiry has been received. We will contact you
-                shortly.
-              </p>
-            )}
           </form>
         </div>
       </div>
